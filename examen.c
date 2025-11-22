@@ -7,15 +7,11 @@ int main()
     int votos[100][3]; //Almacena los 3 votos de los oyentes
     int puntos[10] = {0}; //Almacena los puntos de cada canción
     int puntosOyentes[100] = {0}; //Almacena los puntos total de cada oyente
-    int oyentes = 0;
-    int i, j;
-    int primera, segunda;
-    int max1, max2;
+    int oyentes = 0, i, j, primera, segunda, max1, max2;
   
     printf("Introduce los votos, 3 numeros por oyente: \n");
 
-  //Lee los valores hasta los 100 oyentes o el -1
-    for (i = 0; i < 100; i++) 
+    for (i = 0; i < 100; i++)  //Lee los valores hasta los 100 oyentes o el -1
     {
         printf("Oyente %d: ", i);
         scanf("%d %d %d", &votos[i][0], &votos[i][1], &votos[i][2]); //lee los 3 votos 
@@ -53,44 +49,57 @@ int main()
             max1 = puntos[i];
             primera = i;
         } 
-        else if (puntos[i] > max2) 
+        else 
         {
-            max2 = puntos[i];
-            segunda = i;
+            if (puntos[i] > max2) 
+            {
+                 max2 = puntos[i];
+                 segunda = i;
+            }
         }
     }
+
     
     printf("\n1a cancion: %d\n", primera);
     printf("2a cancion: %d\n\n", segunda);
   
     for (i = 0; i < oyentes; i++) //calcular los puntos de cada oyente
     {
-        int tienePrimera = 0;
-        int tieneSegunda = 0;
+        int PRIMERA = 0, SEGUNDA = 0;
         
         for (j = 0; j < 3; j++) //revisar los 3 votos 
         {
             if (votos[i][j] == primera) 
             {
-                tienePrimera = 1;
+                PRIMERA = 1;
             }
             if (votos[i][j] == segunda) 
             {
-                tieneSegunda = 1;
+                SEGUNDA = 1;
             }
         }
         
-        if (tienePrimera) 
+        if (PRIMERA == 1 && SEGUNDA == 1) 
         {
-            puntosOyentes[i] = puntosOyentes[i] + 30; //30 puntos para la primera cancion
+            puntosOyentes[i] = 60; // 30 + 20 + 10 = 60 puntos por acertar ambas
         }
-        if (tieneSegunda) 
+        else 
         {
-            puntosOyentes[i] = puntosOyentes[i] + 20; //20 puntos para la primera cancion
-        }
-        if (tienePrimera && tieneSegunda) 
-        {
-            puntosOyentes[i] = puntosOyentes[i] + 10; //10 puntos para la primera cancion
+            if (PRIMERA == 1) 
+            {
+                puntosOyentes[i] = 30; // 30 puntos por acertar la primera
+            }
+            else 
+            {
+                if (SEGUNDA == 1) 
+                {
+                    puntosOyentes[i] = 20; // 20 puntos por acertar la segunda
+                }
+                else 
+                {
+                    puntosOyentes[i] = 0; // 0 puntos si no acierta ninguna
+                }
+            }
         }
         
         printf("Oyente %d: %d puntos\n", i, puntosOyentes[i]);
