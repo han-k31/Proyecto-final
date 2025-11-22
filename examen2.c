@@ -1,6 +1,6 @@
-
 /*Girón Knepp Hanna Sofía
 En este no estoy segura de que este bien, tuve que preguntarle a la ia sobre la sintaxis varias veces*/
+
 #include <stdio.h>
 
 void Votos(int votos[][3], int *oyentes) 
