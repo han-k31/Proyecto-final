@@ -82,7 +82,7 @@ int main()
         
         if (PRIMERA == 1 && SEGUNDA == 1) 
         {
-            puntosOyentes[i] = 60; // 30 + 20 + 10 = 60 puntos por acertar ambas
+            puntosOyentes[i] = 60; // 60 puntos por acertar ambas?
         }
         else 
         {
