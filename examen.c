@@ -9,7 +9,7 @@ int main()
     int puntosOyentes[100] = {0}; //Almacena los puntos total de cada oyente
     int oyentes = 0, i, j, primera, segunda, max1, max2;
   
-    printf("Introduce los votos, 3 numeros por oyente: \n");
+    printf("Introduce los votos (3 numeros por oyente) entre 0 al 9: \n");
 
     for (i = 0; i < 100; i++)  //Lee los valores hasta los 100 oyentes o el -1
     {
